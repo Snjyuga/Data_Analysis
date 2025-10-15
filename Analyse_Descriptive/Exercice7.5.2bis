@@ -1,0 +1,56 @@
+# fonction pour calculer la population
+get_population <- function(effectifs){
+	total<- 0
+	n<-length(effectifs)
+	for (i in 1:n)){
+		total<- total +effectifs[i]
+	}
+	return(total)
+}
+Population<- get_population(Effectifs)
+#fonction pour calculer la EffectifsCC
+
+get_effectifs_cumulees <- function(effectifs){
+	n<- length(effectifs)
+	effectifs_cc<- rep(0,time= n)
+	effectifs_cc[1]<-effectifs[1]
+	for(i in 2:n){
+	effectifs_cc[i]<-effectifs_cc[i-1]+effectifs[i]
+	}
+	return(effectifs_cc)
+}
+
+# fonction pour calculer les frequences relatives
+get_frequences_rel<- funtion(effectifs,population){
+	n<- length(effectifs)
+	frequences<- rep(0,time=n)
+	for(i in 1:n){
+	frequences[i]<-round(effectifs[i]/population, 4)
+	}
+	return(frequences)
+}
+
+# fonction pour calculer les frequencesCC
+get_frequences_cc<- function(effectifs,frequences){
+	n<-length(effectifs)
+	frequencescc<- rep(0,time=n)
+	frequencescc[1]<-frequences[1]
+	for(i in 1:n){
+		frequencescc[i]<-frequences[i-1]+effectifs[i]
+	}
+	return(frequencescc)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
