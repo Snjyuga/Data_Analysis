@@ -85,9 +85,21 @@ get_quartiles <- function(vecteur1,vecteur2,vecteur3){
 	for(j in 1:length(alpha)){
 		i <- 1
 		while( i <= length(vecteur2)){
-			if (vecteur3[i] == alpha[j]){
-				quartile[j] <- vecteur3[i]
-			} else if(vecteur3[i] > alpha[j]){
+			if ((vecteur3[i] >= alpha[j]) & (vecteur3[i]== vecteur3[1])){
+				Fi <- vecteur3[i]
+				Fi_1 <- 0
+				Fii <- vecteur3[i +1]
+				xi <- vecteur1[i]
+				xii <- vecteur2[i]
+				break
+			} else if((vecteur3[i] >= alpha[j]) & (vecteur3[i] == vecteur3[length(vecteur3)])){
+				Fi <- vecteur3[i]
+				Fi_1 <- vecteur3[i - 1]
+				Fii <- 1
+				xi <- vecteur1[i]
+				xii <- vecteur2[i]
+				break
+			} else {
 				Fi <- vecteur3[i]
 				Fi_1 <- vecteur3[i - 1]
 				Fii <- vecteur3[i +1]
@@ -103,7 +115,7 @@ get_quartiles <- function(vecteur1,vecteur2,vecteur3){
 }
 
 #---------------------------------
-#fonction qui calcule les déciles
+#fonction qui calcule les déciles     (BUG A GERER!!!!!)
 #---------------------------------
 #'
 #' Cette fonction prend trois vecteurs en entrée et renvoie les déciles de la série étudiée.
