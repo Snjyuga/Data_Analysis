@@ -37,7 +37,7 @@ Lignes <- length(Die1)
 Colonnes <- length(Die1)
 
 Table_Resultats <- get_resultats(Die1,Die2,Table_Resultats,Lignes,Colonnes)
-
+View(Table_Resultats)
 Xi <- get_univers(Xi, Lignes, Colonnes, Table_Resultats) # Xi vecteur correspondant à X(Omega)
 
 Pi <- get_probas(Pi, Xi, Lignes, Colonnes, Table_Resultats) # vecteur contenant les degrés de vraisssemblance

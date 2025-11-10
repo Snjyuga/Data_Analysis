@@ -2,7 +2,9 @@
 # fonction qui calcule et stock les issues de la v.a
 #----------------------------------------------------
 
-get_resultats <- function(Die1,Die2,Table_Resultats,Lignes,Colonnes){
+get_resultats <- function(Die1,Die2){
+	Lignes <- length(Die1)
+	Colonnes <- length(Die2)
 	Table_Resultats <- matrix(ncol= Colonnes , nrow= Lignes, byrow= TRUE)
 	i <- 1
 	j <- 1

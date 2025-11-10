@@ -62,7 +62,7 @@ get_proportion_c <- function(NombreD_etoiles,Frequences){
 } 
 
 #------------------------------
-#fonction calcul des quartiles 
+#fonction calcul des quartiles 		(BUG A GERER!!!!!)
 #------------------------------
 #'
 #' Cette fonction prend trois vecteurs en entrée et renvoie les quartiles de la série étudiée.
