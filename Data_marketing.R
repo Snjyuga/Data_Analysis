@@ -54,8 +54,30 @@ hist(dataset$newspaper, prob = TRUE, nclass = 50, col= "lightpink",main = "Distr
 lines(density(dataset$newspaper), col = "red", lwd = 2)
 
 
+# Division de notre base de données
+
+set.seed(101)
+n_total <- nrow(dataset)
+taille_train <- floor(0.80 * n_total)
+indices_train = sample_int(n_total, size = taille_train, replace = FALSE)
+train <- marketing[indices_train,]
+test <- marketing[-indices_train,]
 
 
+# création du modèle
+Modele <- ln(dataset$sales-dataset$youtube+dataset$facebook+dataset$newpappers, data=train)
+summary(Modele)
+
+
+
+
+
+
+
+
+
+nom du groupe
+sujet 
 
 
 

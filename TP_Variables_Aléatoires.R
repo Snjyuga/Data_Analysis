@@ -321,7 +321,7 @@ proba3 <- fonction_empirique(3) - fonction_empirique(-3)
 
 #a) Simuler 10000 notes d'examen suivant N(12,9)
 
-echantillon3.2 <- round(rnorm(10000,mean = 12, sd = 3),1)
+echantillon3.2 <- rnorm(10000,mean = 12, sd = 3)
 echantillon3.2
 # b) Vérifier empiriquement les paramètres
 
@@ -332,7 +332,7 @@ Variance_empirique3.2
 
 # c) Créer un histogramme avec la densité théorique
 
-hist(
+X <- hist(
 	echantillon3.2,
 	prob = TRUE,
 	main = "Histogramme avec la courbe de la densité théorique",
@@ -340,9 +340,11 @@ hist(
 	ylab = "Densité",
 	col = "red",
 	border = "white",
-	breaks = 50,
-	ylim = c(0, 0.4),
-	xlim = c(0, 3.5))
+	ylim = c(0, 676),
+	xlim = c(1, 23.5))
+
+classes <- X$breaks
+effectifs <- X$counts
 
 abcisses <- seq(min(echantillon3.2), max(echantillon3.2), length.out = 100)
 densites <- dnorm(abcisses, mean = 12, sd = 3)
@@ -386,7 +388,7 @@ P(X > a) = 1 - phi(a) = 0.1 => phi(a) = 0.9
 a - 12 / 3 = 1.28 => a = 15.84
 
 #b) Déterminer l'intervalle [b,c] contenant 95% des notes (centré sur la moyenne)
-test = c(12 - 2*3, 12 + 2*3)
+blocks = c(12 - 2*3, 12 + 2*3)
 
 X <- hist(
 	echantillon3.2,
@@ -466,7 +468,7 @@ des densités avec la courbe en cloche
 proba_theorique_3_5_e <- 1 - pnorm(13,mean = 12, sd = 3)
 proba_theorique_3_5_e
 
-Fonction_empirique <- nu(2000)
+Fonction_empirique <- numeric(2000)
 for(i in 1:2000){
 	Fonction_empirique[i] <- ecdf(Echantillons[i])
 }
